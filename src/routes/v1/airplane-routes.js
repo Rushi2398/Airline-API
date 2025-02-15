@@ -12,4 +12,14 @@ router.post(
 
 router.get("/", AirplaneController.getAirplanes);
 
+router.get("/:id", AirplaneController.getAirplane);
+
+router.get("/:id", AirplaneController.destroyAirplanes);
+
+router.patch(
+  "/:id",
+  AirplaneMiddleware.validateUpdateRequest,
+  AirplaneController.updateAirplane
+);
+
 module.exports = router;
